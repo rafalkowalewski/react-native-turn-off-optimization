@@ -41,7 +41,7 @@ public class RNTurnOffOptimizationModule extends ReactContextBaseJavaModule {
         final Intent i = new Intent();
         i.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
         i.setData(Uri.parse("package:" + reactContext.getPackageName()));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M || Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         reactContext.startActivity(i);
